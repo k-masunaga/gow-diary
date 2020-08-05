@@ -1,24 +1,71 @@
-# README
+## 機能
+- 投稿機能
+- ログイン機能
+- 検索機能
+- 絞り込み機能
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# DBテーブル構成
 
-* Ruby version
+ ## usersテーブル
 
-* System dependencies
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false, unique: true|
+|email|string|null: false, unique: true|
+|password|string|null: false, unique: true|
 
-* Configuration
+### Association
+- has_many :diaries
+- has_many :objectives
 
-* Database creation
+ ## diariesテーブル
 
-* Database initialization
+|Column|Type|Options|
+|------|----|-------|
+|title|string|null: false|
+|valuation|integer|null: false|
+|sleep|string|null: false|
+|feeling|string|null: false|
+|short_term_goals|string|null: false|
+|long_term_goals|string|null: false|
+|plan|string|null: false|
+|remark|string| |
 
-* How to run the test suite
+### Association
+- has_many :diaries_objectives
+- has_many :objectives, through: :diaries_objectives
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
+ ## objectivesテーブル
 
-* Deployment instructions
+|Column|Type|Options|
+|------|----|-------|
+|aim|string|null: false|
+|unit|string|null: false|
 
-* ...
+### Association
+- has_many :diaries_objectives
+- has_many :diaries, through: :diaries_objectives
+- has_many :amount
+- belongs_to :user
+
+ ## amountsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|amount|float|null: false|
+
+### Association
+- belongs_to :objectives
+
+ ## diaries_objectivesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|diary_id|integer|null: false, foreign_key: true|
+|objective_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :diary
+- belongs_to :objective
