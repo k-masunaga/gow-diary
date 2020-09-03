@@ -1,0 +1,22 @@
+.body
+  .body__mypage
+    .body__mypage__head
+      = current_user.name + "さんのマイページ"
+      .body__mypage__head__account
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+    .body__mypage__body
+      .body__mypage__body__diaries
+        .body__mypage__body__diaries__topic
+          記録一覧
+        .body__mypage__body__diaries__diary
+          .body__mypage__body__diaries__diary__title
+            タイトル
+          .body__mypage__body__diaries__diary__date
+            2020年9月3日
+      .body__mypage__body__info
+        .body__mypage__body__info__title
+          設定目標の詳細一覧
+        .body__mypage__body__info__detail
+          △△の詳細
+.footer
+  gow-diary
