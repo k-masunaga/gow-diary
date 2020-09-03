@@ -2,6 +2,8 @@
   .body__mypage
     .body__mypage__head
       = current_user.name + "さんのマイページ"
+      .body__mypage__head__account
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
     .body__mypage__body
       .body__mypage__body__diaries
         .body__mypage__body__diaries__topic
