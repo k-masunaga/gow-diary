@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_141318) do
   create_table "objectives", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "aim", null: false
     t.string "unit", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

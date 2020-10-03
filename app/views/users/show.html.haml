@@ -24,6 +24,7 @@
         .body__mypage__body__info__title
           設定目標の詳細一覧
         .body__mypage__body__info__detail
-          △△の詳細
+          - @objectives.each do |objective|
+            = objective.aim + "の詳細"
 .footer
   gow-diary

@@ -14,13 +14,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :objective, only: [:new, :get, :create, :post] do
+  resources :objective, only: [:index, :new, :create]
 
-    collection do
-      post 'new'
-    end
-    member do
-      get 'create'
-    end
-  end
 end
