@@ -1,9 +1,16 @@
 .body
   .body__mypage
     .body__mypage__head
-      = current_user.name + "さんのマイページ"
-      .body__mypage__head__account
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+      .body__mypage__head__title
+        = current_user.name + "さんのマイページ"
+        .body__mypage__head__account
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+    .body__mypage__create
+      .body__mypage__create__diary
+        記録を投稿する
+      .body__mypage__create__objective
+        = link_to "目標を設定する", new_objective_path, method: :get, class: 'btn'
+        -# 目標を設定する
     .body__mypage__body
       .body__mypage__body__diaries
         .body__mypage__body__diaries__topic

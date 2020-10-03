@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users, only: [:show, :get]
+  root to: 'users#new'
+
+  resources :users, only: [:show, :get] do
+    member do
+      get 'show'
+    end
+  end
 
   resources :diary, only: [:get, :post] do
     collection do
@@ -8,8 +14,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :objective, only: [:get, :post] do
+  resources :objective, only: [:new, :get, :create, :post] do
+
     collection do
+      post 'new'
+    end
+    member do
       get 'create'
     end
   end
