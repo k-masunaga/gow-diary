@@ -1,0 +1,26 @@
+.amount-body
+  .amount-body__field
+    .amount-body__field__title
+      記録の投稿
+    .amount-body__field__results
+      .amount-body__field__results__top
+        本日の成果
+      = form_with(model: @amount, url: amount_index_path, multipart: true, local: true)do |form|
+        .amount-body__field__results__aims
+          .amount-body__field__results__aims__aim
+            - @objectives.each do |objective|
+              = objective.aim
+              = form.number_field :amount
+              = objective.unit
+              = form.hidden_field :objective_id, :value => @objectives.ids
+              %br
+          -# .amount-body__field__results__aims__amount
+          -#   ※ここに値
+          -# .amount-body__field__results__aims__unit
+          -#   - @unit.each do |unit|
+          -#     = unit.unit
+          -#     %br/
+        .amount-body__field__results__next
+          .amount-body__field__results__next__btn
+            = form.submit '次へ'
+.footer

@@ -22,9 +22,11 @@
             2020年9月3日
       .body__mypage__body__info
         .body__mypage__body__info__title
-          設定目標の詳細一覧
-        .body__mypage__body__info__detail
+          設定した目標一覧
+        .body__mypage__body__info__details
           - @objectives.each do |objective|
-            = objective.aim + "の詳細"
+            .body__mypage__body__info__details__detail
+              = link_to new_amount_path(objective.id) do
+                - objective.aim + "の記録を追加"
 .footer
   gow-diary

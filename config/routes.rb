@@ -16,4 +16,6 @@ Rails.application.routes.draw do
 
   resources :objective, only: [:index, :new, :create]
 
+  resources :amount, only: [:new, :create]
+
 end
