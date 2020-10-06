@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ObjectiveControllerTest < ActionDispatch::IntegrationTest
+class AmountsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

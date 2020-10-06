@@ -8,14 +8,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :diary, only: [:get, :post] do
-    collection do
-      get 'create'
-    end
+  resources :diary, only: [:new, :create]
+
+  resources :objective, only: [:index, :new, :create] do
+    resources :amount, only: [:new, :create]
+      post 'create'
   end
-
-  resources :objective, only: [:index, :new, :create]
-
-  resources :amount, only: [:new, :create]
 
 end

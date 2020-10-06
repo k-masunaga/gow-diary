@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_141318) do
 
   create_table "amounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.float "amount", null: false
+    t.integer "objective_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

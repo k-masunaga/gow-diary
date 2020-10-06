@@ -5,7 +5,7 @@
     .amount-body__field__results
       .amount-body__field__results__top
         本日の成果
-      = form_with(model: @amount, url: amount_index_path, multipart: true, local: true)do |form|
+      = form_with(model: @amount, url: objective_create_path, multipart: true, local: true)do |form|
         .amount-body__field__results__aims
           .amount-body__field__results__aims__aim
             - @objectives.each do |objective|
